@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "pnpm -r --filter \"@sveltekit-statefull-session/*\" --parallel dev",
 		"build": "pnpm -r --filter \"@sveltekit-statefull-session/*\" build",
-		"example": "pnpm --filter simple-session dev"
+		"example": "pnpm --filter simple-session dev",
+		"prepare": "changeset"
 	},
 	"peerDependencies": {
 		"svelte": "^3.54.0"
