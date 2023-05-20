@@ -1,4 +1,3 @@
-import { dev } from "$app/environment";
 import type { Handle, RequestEvent } from "@sveltejs/kit";
 import type { SessionKey, SessionRepository } from "./strategies/strategy.js";
 
@@ -35,7 +34,7 @@ export class SveltekitSession<Session> {
             keyGenerator: options.keyGenerator ?? defaultSessionKey,
             sessionCookieName: options.sessionCookieName ?? 'svelte-session-key',
             debug: options.debug ?? false,
-            secure: options.secure ?? dev,
+            secure: options.secure ?? true,
         }
         this.repository.purgeExpired();
         this.sessionKey = event.cookies.get(this.options.sessionCookieName) ?? null;

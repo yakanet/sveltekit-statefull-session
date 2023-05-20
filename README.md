@@ -55,7 +55,7 @@ You can access only from the server side to the session using the `locals.sessio
 | sessionCookieName | Name of the session cookie             | 'svelte-session-key'            |
 | keyGenerator      | Function to generate a new session key | crypto.randomUUID()             |
 | debug             | Log session events                     | false                           |
-| secure            | Secure the session cookie              | { dev } from "$app/environment" |
+| secure            | Secure the session cookie              | true                            |
 
 
 ## InMemorySessionRepository
