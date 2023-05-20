@@ -1,6 +1,6 @@
-import { TTLParser } from "$lib/ttl.js";
+import { TTLParser } from "@sveltekit-statefull-session/core";
 import type { RedisClientType } from "@redis/client";
-import type { RepositoryOption, SessionRepository } from "./strategy.js";
+import type { RepositoryOption, SessionRepository } from "@sveltekit-statefull-session/core";
 
 interface RedisOption {
     client: RedisClientType;

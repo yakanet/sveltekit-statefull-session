@@ -1,0 +1,27 @@
+{
+  "name": "@sveltekit-statefull-session/repository-redis",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module", 
+  "scripts": {
+    "dev": "tsc -w",
+    "test": "vitest",
+    "build": "tsc"
+  },
+  "main": "./dist/index.js",
+  "files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+  "peerDependencies": {
+    "@sveltekit-statefull-session/core": "^1.0.0",
+    "@redis/client": "^1.5.7"
+  },
+  "devDependencies": {
+    "@sveltekit-statefull-session/core": "workspace:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

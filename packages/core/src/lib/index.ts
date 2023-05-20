@@ -2,4 +2,4 @@
 export * from './session.server.js';
 export * from './strategies/strategy.js';
 export * from './strategies/inmemory.js';
-export * from './strategies/redis.js';
+export * from './ttl.js';

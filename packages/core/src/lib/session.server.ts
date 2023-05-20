@@ -14,9 +14,9 @@ export type SessionOption = {
  * @param options 
  * @returns 
  */
-export function handleSession(repository: SessionRepository<Session>, options: Partial<SessionOption> = {}): Handle {
+export function handleSession<Session>(repository: SessionRepository<Session>, options: Partial<SessionOption> = {}): Handle {
     return async function ({ event, resolve }) {
-        event.locals.session = new SveltekitSession(event, repository, options);
+        (event.locals as any).session = new SveltekitSession(event, repository, options);
         return resolve(event);
     }
 }

@@ -1,4 +1,4 @@
-import type { TTL, TTLParser } from "$lib/ttl.js";
+import type { TTL, TTLParser } from "../ttl.js";
 export type SessionKey = string;
 
 export interface RepositoryOption {

@@ -6,7 +6,7 @@ Create a `src/hooks.server.ts` file in your svelte project using the following c
 
 ```ts 
 // src/hooks.server.ts
-import { InMemorySessionRepository, handleSession } from '@yakanet/sveltekit-statefull-session';
+import { InMemorySessionRepository, handleSession } from '@sveltekit-statefull-session/core';
 
 const repository = new InMemorySessionRepository({ ttl: '5s'});
 export const handle = handleSession(repository, { debug: true });
@@ -19,7 +19,7 @@ In your `src/app.d.ts` file, copy the following code, and fill in the Session ty
 ```ts
 
 // See https://kit.svelte.dev/docs/types#app
-import type { SveltekitSession } from "@yakanet/sveltekit-statefull-session";
+import type { SveltekitSession } from "@sveltekit-statefull-session/core";
 
 // for information about these interfaces
 declare global {
@@ -65,7 +65,9 @@ Create an instance of InMemorySessionRepository using the 2 followings parameter
 > InMemorySessionRepository works only with the node adapter and only with a single instance of node.
 
 ## RedisSessionRepository
-You need to install the [@redis/client](https://www.npmjs.com/package/redis), and create an instance in your `src/hooks.server.ts` using the createClient function.
+You need to install the [@redis/client](https://www.npmjs.com/package/redis), and create an instance in your `src/hooks.server.ts` using the `createClient` function.
+
+You need to install the [@sveltekit-statefull-session/repository-redis](https://www.npmjs.com/package/@sveltekit-statefull-session/repository-redis) and create an instance of RedisSessionRepository.
 
 Create an instance of RedisSessionRepository using the 2 followings parameters : 
 - `ttl`: A simple string describing how long should the session last. More information [here](#ttl)
@@ -86,13 +88,21 @@ const ttl3: TTL = '36s' // 36 seconds
 ## Examples
 You can see a working example here: [hooks.server.ts](/src/hooks.server.ts) [+page.server.ts](/src/routes/+page.server.ts)  [+page.svelte](/src/routes/+page.svelte)
 
+## Compile project
+
+```sh
+pnpm i
+pnpm build
+pnpm example
+```
+
 ## Todo
 - [x] Session TTL
 - [x] Cookie session id
 - [x] Create InMemory repository
 - [x] Create Redis repository
 - [ ] Create Prisma repository
-- [ ] Option for handleSession to refresh the TTL or not
+- [ ] Option for handleSession to refresh the TTL on update or not
 - [ ] Publish on npm repository with a github action
 - [ ] Playwright tests
-- [ ] Create mono-repo for every repositories ?
+- [x] Create mono-repo for every repositories

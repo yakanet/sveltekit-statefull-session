@@ -1,4 +1,4 @@
-import { TTLParser } from "$lib/ttl.js";
+import { TTLParser } from "./ttl.js";
 import { describe, expect, test, vi } from "vitest";
 
 describe('ttl', () => {

@@ -1,4 +1,4 @@
-import { TTLParser } from "$lib/ttl.js";
+import { TTLParser } from "../ttl.js";
 import type { SessionRepository, SessionKey, RepositoryOption } from "./strategy.js";
 
 interface SessionHolder<Session> {

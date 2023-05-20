@@ -1,6 +1,6 @@
 // See https://kit.svelte.dev/docs/types#app
 
-import type { SveltekitSession } from "$lib/index.js";
+import type { SveltekitSession } from "@sveltekit-statefull-session/core";
 
 // for information about these interfaces
 declare global {

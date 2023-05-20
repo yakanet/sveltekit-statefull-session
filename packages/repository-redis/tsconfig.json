@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "strict": true,
+        "moduleResolution": "NodeNext",
+        "rootDir": "src",
+        "outDir": "dist",
+        "lib": [
+            "esnext"
+        ],
+        "target": "ESNext",
+        "declarationMap": false,
+        "declaration": true
+    },
+    "exclude": [
+        "tests",
+        "dist"
+    ]
+}
