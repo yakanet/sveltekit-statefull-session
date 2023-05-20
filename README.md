@@ -86,7 +86,7 @@ const ttl3: TTL = '36s' // 36 seconds
 ```
 
 ## Examples
-You can see a working example here: [hooks.server.ts](/src/hooks.server.ts) [+page.server.ts](/src/routes/+page.server.ts)  [+page.svelte](/src/routes/+page.svelte)
+You can see a working example here: [simple-session](examples/simple-session/)
 
 ## Compile project
 
