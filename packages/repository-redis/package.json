@@ -1,8 +1,8 @@
 {
   "name": "@sveltekit-statefull-session/repository-redis",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
-  "type": "module", 
+  "type": "module",
   "scripts": {
     "package": "cp ../..README.md . && pnpm run build",
     "dev": "tsc -w",
@@ -11,12 +11,12 @@
   },
   "main": "./dist/index.js",
   "files": [
-		"dist",
-		"!dist/**/*.test.*",
-		"!dist/**/*.spec.*"
-	],
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
   "peerDependencies": {
-    "@sveltekit-statefull-session/core": "^1.0.0",
+    "@sveltekit-statefull-session/core": "workspace:*",
     "@redis/client": "^1.5.7"
   },
   "devDependencies": {
