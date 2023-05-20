@@ -65,9 +65,9 @@ Create an instance of InMemorySessionRepository using the 2 followings parameter
 > InMemorySessionRepository works only with the node adapter and only with a single instance of node.
 
 ## RedisSessionRepository
-You need to install the [@redis/client](https://www.npmjs.com/package/redis), and create an instance in your `src/hooks.server.ts` using the `createClient` function.
+You need to install [@redis/client](https://www.npmjs.com/package/redis), and create an instance in your `src/hooks.server.ts` using the `createClient` function.
 
-You need to install the [@sveltekit-statefull-session/repository-redis](https://www.npmjs.com/package/@sveltekit-statefull-session/repository-redis) and create an instance of RedisSessionRepository.
+You need to install [@sveltekit-statefull-session/repository-redis](https://www.npmjs.com/package/@sveltekit-statefull-session/repository-redis) and create an instance of RedisSessionRepository.
 
 Create an instance of RedisSessionRepository using the 2 followings parameters : 
 - `ttl`: A simple string describing how long should the session last. More information [here](#ttl)
