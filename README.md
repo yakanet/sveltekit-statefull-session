@@ -103,6 +103,6 @@ pnpm example
 - [x] Create Redis repository
 - [ ] Create Prisma repository
 - [ ] Option for handleSession to refresh the TTL on update or not
-- [ ] Publish on npm repository with a github action
+- [x] Publish on npm repository with a github action
 - [ ] Playwright tests
 - [x] Create mono-repo for every repositories
