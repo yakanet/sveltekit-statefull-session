@@ -2,7 +2,7 @@
 	"name": "@sveltekit-statefull-session/core",
 	"version": "1.0.0",
 	"scripts": {
-		"package": "cp ../..README.md . && pnpm run build",
+		"package": "pnpm run build",
 		"dev": "svelte-package -w",
 		"build": "svelte-kit sync && svelte-package && publint",
 		"preview": "vite preview",
