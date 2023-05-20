@@ -7,7 +7,7 @@
 		"dev": "pnpm -r --filter \"@sveltekit-statefull-session/*\" --parallel dev",
 		"build": "pnpm -r --filter \"@sveltekit-statefull-session/*\" build",
 		"example": "pnpm --filter simple-session dev",
-		"vercel": "pnpm build && pnpm --filter simple-session build",
+		"vercel-build": "pnpm build && pnpm --filter simple-session build",
 		"release:prepare": "changeset && changeset version"
 	},
 	"peerDependencies": {
