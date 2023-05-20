@@ -13,6 +13,8 @@ export class RedisSessionRepository<Session> implements SessionRepository<Sessio
 
     #ttl: TTLParser;
 
+    name = 'redis';
+
     constructor(options: RepositoryOption & RedisOption) {
         this.#ttl = new TTLParser(options.ttl);
         this.#redisClient = options.client;

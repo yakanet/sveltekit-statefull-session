@@ -6,6 +6,8 @@ export interface RepositoryOption {
 }
 
 export interface SessionRepository<Session> {
+
+    name: string;
     /**
      * @returns configured expiration date
      */

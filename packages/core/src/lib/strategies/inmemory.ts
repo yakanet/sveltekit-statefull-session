@@ -9,10 +9,12 @@ interface SessionHolder<Session> {
 export class InMemorySessionRepository<Session> implements SessionRepository<Session> {
     private static sessions = new Map<SessionKey, SessionHolder<any>>();
     #ttl: TTLParser;
+    name = 'In-memory';
 
     constructor(options: RepositoryOption) {
         this.#ttl = new TTLParser(options.ttl);
     }
+
 
     ttl(): TTLParser {
         return this.#ttl;
