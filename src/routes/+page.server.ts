@@ -31,5 +31,4 @@ export const actions = {
             success: await locals.session.destroy()
         };
     }
-
 } satisfies Actions;

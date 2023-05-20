@@ -6,7 +6,7 @@ Create a `src/hooks.server.ts` file in your svelte project using the following c
 
 ```ts 
 // src/hooks.server.ts
-import { InMemorySessionRepository, handleSession } from '$lib/index.js';
+import { InMemorySessionRepository, handleSession } from '@yakanet/sveltekit-statefull-session';
 
 const repository = new InMemorySessionRepository({ ttl: '5s'});
 export const handle = handleSession(repository, { debug: true });
@@ -19,7 +19,7 @@ In your `src/app.d.ts` file, copy the following code, and fill in the Session ty
 ```ts
 
 // See https://kit.svelte.dev/docs/types#app
-import type { SveltekitSession } from "$lib/session.server.ts";
+import type { SveltekitSession } from "@yakanet/sveltekit-statefull-session";
 
 // for information about these interfaces
 declare global {
