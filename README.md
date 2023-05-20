@@ -42,9 +42,13 @@ export { };
 
 You can access only from the server side to the session using the `locals.session` available from the [RequestEvent](https://kit.svelte.dev/docs/types#public-types-requestevent) property in any load function (or action function).
 
-> The InMemory repository works only with the node adapter and only with a single instance of node.
+## handleSession 
 
-## handleSession options
+`handleSession` takes 2 paramèters :
+- repository: Must be any instance of the `SessionRepository` interface
+- options: (optional) to fine tune the session
+
+### Options
 
 | Option            | Description                            | Default                         |
 |-------------------|----------------------------------------|---------------------------------|
@@ -53,8 +57,34 @@ You can access only from the server side to the session using the `locals.sessio
 | debug             | Log session events                     | false                           |
 | secure            | Secure the session cookie              | { dev } from "$app/environment" |
 
+
+## InMemorySessionRepository
+Create an instance of InMemorySessionRepository using the 2 followings parameters : 
+- `ttl`: A simple string describing how long should the session last. More information [here](#ttl)
+
+> InMemorySessionRepository works only with the node adapter and only with a single instance of node.
+
+## RedisSessionRepository
+You need to install the [@redis/client](https://www.npmjs.com/package/redis), and create an instance in your `src/hooks.server.ts` using the createClient function.
+
+Create an instance of RedisSessionRepository using the 2 followings parameters : 
+- `ttl`: A simple string describing how long should the session last. More information [here](#ttl)
+- `client`: The previously created instance of redis client
+
+## TTL
+A ttl is a string declaring how long the session should last. The string must follow the following format `${number}${unit}` :
+- number is the quantity of time 
+- unit is the unit of time (currently only `s`: second, `m`: minute, `h`: hour are supported)
+
+For instance : 
+```ts
+const ttl1: TTL = '5m'  // 5 minutes
+const ttl2: TTL = '2h'  // 2 hours
+const ttl3: TTL = '36s' // 36 seconds
+```
+
 ## Examples
-You can see a working example [here](/src/routes/+page.server.ts)
+You can see a working example here: [hooks.server.ts](/src/hooks.server.ts) [+page.server.ts](/src/routes/+page.server.ts)  [+page.svelte](/src/routes/+page.svelte)
 
 ## Todo
 - [x] Session TTL
@@ -62,6 +92,7 @@ You can see a working example [here](/src/routes/+page.server.ts)
 - [x] Create InMemory repository
 - [x] Create Redis repository
 - [ ] Create Prisma repository
+- [ ] Option for handleSession to refresh the TTL or not
 - [ ] Publish on npm repository with a github action
 - [ ] Playwright tests
 - [ ] Create mono-repo for every repositories ?
