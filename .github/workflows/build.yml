@@ -1,6 +1,8 @@
 name: pnpm Example Workflow
 on:
   push:
+    branches-ignore:    
+    - 'main'
 jobs:
   build:
     runs-on: ubuntu-latest
