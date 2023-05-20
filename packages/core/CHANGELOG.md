@@ -1,5 +1,11 @@
 # @sveltekit-statefull-session/core
 
+## 1.0.2
+
+### Patch Changes
+
+- add a name property to repositoroes
+
 ## 1.0.1
 
 ### Patch Changes

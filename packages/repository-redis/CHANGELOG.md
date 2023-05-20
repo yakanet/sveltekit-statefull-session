@@ -1,5 +1,13 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.0.2
+
+### Patch Changes
+
+- add a name property to repositoroes
+- Updated dependencies
+  - @sveltekit-statefull-session/core@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
