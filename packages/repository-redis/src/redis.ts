@@ -1,4 +1,4 @@
-import { TTLParser } from "@sveltekit-statefull-session/core";
+import { SessionKey, TTLParser } from "@sveltekit-statefull-session/core";
 import type { RedisClientType } from "@redis/client";
 import type { RepositoryOption, SessionRepository } from "@sveltekit-statefull-session/core";
 
@@ -7,6 +7,8 @@ interface RedisOption {
 }
 
 export class RedisSessionRepository<Session> implements SessionRepository<Session> {
+    private redisPrefix = 'session-key';
+
     #redisClient: RedisClientType;
 
     #ttl: TTLParser;
@@ -16,31 +18,35 @@ export class RedisSessionRepository<Session> implements SessionRepository<Sessio
         this.#redisClient = options.client;
     }
 
-    async exists(sessionKey: string): Promise<boolean> {
-        const value = await this.#redisClient.get(sessionKey);
+    private getRedisKey(sessionKey: SessionKey) {
+        return `${this.redisPrefix}:${sessionKey}`;
+    }
+
+    async exists(sessionKey: SessionKey): Promise<boolean> {
+        const value = await this.#redisClient.get(this.getRedisKey(sessionKey));
         return value !== null;
     }
 
-    async initializeSession(sessionKey: string): Promise<void> {
-        await this.#redisClient.set(sessionKey, JSON.stringify('null'));
-        await this.#redisClient.expire(sessionKey, this.#ttl.toSecond());
+    async initializeSession(sessionKey: SessionKey): Promise<void> {
+        await this.#redisClient.set(this.getRedisKey(sessionKey), JSON.stringify('null'));
+        await this.#redisClient.expire(this.getRedisKey(sessionKey), this.#ttl.toSecond());
     }
 
-    async loadValue(sessionKey: string): Promise<Session | null> {
-        const value = await this.#redisClient.get(sessionKey);
+    async loadValue(sessionKey: SessionKey): Promise<Session | null> {
+        const value = await this.#redisClient.get(this.getRedisKey(sessionKey));
         if (!value) {
             return null;
         }
         return JSON.parse(value);
     }
 
-    async storeValue(sessionKey: string, value: Session): Promise<void> {
-        await this.#redisClient.set(sessionKey, JSON.stringify(value));
-        await this.#redisClient.expire(sessionKey, this.#ttl.toSecond());
+    async storeValue(sessionKey: SessionKey, value: Session): Promise<void> {
+        await this.#redisClient.set(this.getRedisKey(sessionKey), JSON.stringify(value));
+        await this.#redisClient.expire(this.getRedisKey(sessionKey), this.#ttl.toSecond());
     }
 
-    async destroySession(sessionKey: string): Promise<void> {
-        await this.#redisClient.del(sessionKey);
+    async destroySession(sessionKey: SessionKey): Promise<void> {
+        await this.#redisClient.del(this.getRedisKey(sessionKey));
     }
 
     async purgeExpired(): Promise<void> {
