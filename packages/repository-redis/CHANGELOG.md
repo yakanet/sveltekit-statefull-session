@@ -1,5 +1,13 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.0.1
+
+### Patch Changes
+
+- Setup proper github workflow
+- Updated dependencies
+  - @sveltekit-statefull-session/core@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

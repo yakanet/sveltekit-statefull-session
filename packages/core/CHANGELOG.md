@@ -1,5 +1,11 @@
 # @sveltekit-statefull-session/core
 
+## 1.0.1
+
+### Patch Changes
+
+- Setup proper github workflow
+
 ## 1.0.0
 
 ### Major Changes

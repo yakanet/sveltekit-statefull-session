@@ -1,6 +1,6 @@
 {
 	"name": "@sveltekit-statefull-session/core",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"scripts": {
 		"package": "pnpm run build",
 		"dev": "svelte-package -w",
