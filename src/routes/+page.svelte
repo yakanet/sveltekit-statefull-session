@@ -1,3 +1,25 @@
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+    import { enhance } from "$app/forms";
+    export let data;
+</script>
+
+<main>
+    <pre>{JSON.stringify(data, null, 2)}</pre>
+    <form method="post" use:enhance>
+        {#if !data.created}
+            <button type="submit" formaction="?/create">
+                Create session
+            </button>
+        {:else}
+            <button type="submit" formaction="?/store">
+                Store in session
+            </button>
+            <button type="submit" formaction="?/refresh">
+                Refresh session
+            </button>
+            <button type="submit" formaction="?/destroy">
+                Destroy session
+            </button>
+        {/if}
+    </form>
+</main>
