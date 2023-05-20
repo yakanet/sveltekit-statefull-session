@@ -51,7 +51,7 @@ export class SveltekitSession<Session> {
 
     private log(message?: any, ...params: any[]) {
         if (this.options.debug) {
-            console.log(message, params);
+            console.log(message, ...params);
         }
     }
 
@@ -60,7 +60,7 @@ export class SveltekitSession<Session> {
             return false;
         }
         this.sessionKey = this.options.keyGenerator();
-        this.log(`Creating new session ${this.sessionKey}`);
+        this.log(`Creating new ${this.repository.name} session ${this.sessionKey}`);
         this.event.cookies.set(this.options.sessionCookieName, this.sessionKey, {
             path: '/',
             httpOnly: true,
@@ -99,7 +99,7 @@ export class SveltekitSession<Session> {
             secure: this.options.secure,
         });
         await this.repository.storeValue(this.sessionKey, value);
-        this.log(`Updating session ${this.sessionKey}`, value);
+        this.log(`Updating ${this.repository.name} session ${this.sessionKey}`, value);
         return true;
     }
 
@@ -114,7 +114,7 @@ export class SveltekitSession<Session> {
             secure: this.options.secure,
         });
         await this.repository.destroySession(this.sessionKey);
-        this.log(`Destroying session ${this.sessionKey}`);
+        this.log(`Destroying ${this.repository.name} session ${this.sessionKey}`);
         return true;
     }
 }
