@@ -4,7 +4,7 @@
   "description": "",
   "type": "module", 
   "scripts": {
-    "package": "tsc",
+    "package": "cp ../..README.md . && pnpm run build",
     "dev": "tsc -w",
     "test": "vitest",
     "build": "tsc"
