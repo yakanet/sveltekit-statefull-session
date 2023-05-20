@@ -1,23 +1,36 @@
-name: Publish Package to npmjs
+name: Release
+
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
+
 jobs:
-  build:
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
       - uses: pnpm/action-setup@v2
         with:
             version: latest
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-            node-version: 18
-            cache: 'pnpm'
-            registry-url: 'https://registry.npmjs.org/'
-      - run: pnpm changeset version
-      - run: pnpm install
-      - run: pnpm publish -r --no-git-checks --access public
+          node-version: 18
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          publish: pnpm release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
