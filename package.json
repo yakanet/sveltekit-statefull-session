@@ -2,6 +2,7 @@
 	"name": "sveltekit-statefull-session",
 	"version": "0.0.2",
 	"license": "MIT",
+	"type": "module",
 	"scripts": {
 		"dev": "pnpm -r --filter \"@sveltekit-statefull-session/*\" --parallel dev",
 		"build": "pnpm -r --filter \"@sveltekit-statefull-session/*\" build",
@@ -17,5 +18,4 @@
 		"typescript": "^5.0.0",
 		"vitest": "^0.25.3"
 	},
-	"type": "module"
 }
