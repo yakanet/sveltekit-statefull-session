@@ -7,33 +7,27 @@ interface RedisOption {
 }
 
 export class RedisSessionRepository<Session> implements SessionRepository<Session> {
-    private redisClient: RedisClientType;
+    #redisClient: RedisClientType;
 
     #ttl: TTLParser;
-    #options: RepositoryOption & RedisOption;
 
     constructor(options: RepositoryOption & RedisOption) {
         this.#ttl = new TTLParser(options.ttl);
-        this.redisClient = options.client;
-        this.#options = options;
+        this.#redisClient = options.client;
     }
 
     async exists(sessionKey: string): Promise<boolean> {
-        const value = await this.redisClient.get(sessionKey);
+        const value = await this.#redisClient.get(sessionKey);
         return value !== null;
     }
 
-    options(): RepositoryOption {
-        return this.#options;
-    }
-
     async initializeSession(sessionKey: string): Promise<void> {
-        await this.redisClient.set(sessionKey, JSON.stringify('null'));
-        await this.redisClient.expire(sessionKey, this.#ttl.toSecond());
+        await this.#redisClient.set(sessionKey, JSON.stringify('null'));
+        await this.#redisClient.expire(sessionKey, this.#ttl.toSecond());
     }
 
     async loadValue(sessionKey: string): Promise<Session | null> {
-        const value = await this.redisClient.get(sessionKey);
+        const value = await this.#redisClient.get(sessionKey);
         if (!value) {
             return null;
         }
@@ -41,12 +35,12 @@ export class RedisSessionRepository<Session> implements SessionRepository<Sessio
     }
 
     async storeValue(sessionKey: string, value: Session): Promise<void> {
-        await this.redisClient.set(sessionKey, JSON.stringify(value));
-        await this.redisClient.expire(sessionKey, this.#ttl.toSecond());
+        await this.#redisClient.set(sessionKey, JSON.stringify(value));
+        await this.#redisClient.expire(sessionKey, this.#ttl.toSecond());
     }
 
     async destroySession(sessionKey: string): Promise<void> {
-        await this.redisClient.del(sessionKey);
+        await this.#redisClient.del(sessionKey);
     }
 
     async purgeExpired(): Promise<void> {
