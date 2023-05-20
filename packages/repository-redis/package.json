@@ -4,6 +4,7 @@
   "description": "",
   "type": "module", 
   "scripts": {
+    "package": "tsc",
     "dev": "tsc -w",
     "test": "vitest",
     "build": "tsc"

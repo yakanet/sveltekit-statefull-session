@@ -1,6 +1,6 @@
 {
 	"name": "sveltekit-statefull-session",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"license": "MIT",
 	"scripts": {
 		"dev": "pnpm -r --filter \"@sveltekit-statefull-session/*\" --parallel dev",
