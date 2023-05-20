@@ -1,5 +1,16 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.0.0
+
+### Major Changes
+
+- 1100396: Release 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [1100396]
+  - @sveltekit-statefull-session/core@1.0.0
+
 ## 2.0.0
 
 ### Minor Changes
