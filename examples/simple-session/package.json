@@ -10,7 +10,7 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-vercel": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
 		"@sveltekit-statefull-session/core": "latest",
 		"@sveltekit-statefull-session/repository-redis": "latest",
