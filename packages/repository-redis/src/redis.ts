@@ -3,7 +3,7 @@ import type { RedisClientType } from "@redis/client";
 import type { RepositoryOption, SessionRepository } from "@sveltekit-statefull-session/core";
 
 interface RedisOption {
-    client: RedisClientType;
+    client: RedisClientType<any, any, any>;
 }
 
 export class RedisSessionRepository<Session> implements SessionRepository<Session> {
@@ -24,17 +24,27 @@ export class RedisSessionRepository<Session> implements SessionRepository<Sessio
         return `${this.redisPrefix}:${sessionKey}`;
     }
 
+    private async checkConnectivity() {
+        if (!this.#redisClient.isOpen) {
+            await this.#redisClient.connect();
+        }
+    }
+
     async exists(sessionKey: SessionKey): Promise<boolean> {
+        await this.checkConnectivity();
         const value = await this.#redisClient.get(this.getRedisKey(sessionKey));
         return value !== null;
     }
 
     async initializeSession(sessionKey: SessionKey): Promise<void> {
-        await this.#redisClient.set(this.getRedisKey(sessionKey), JSON.stringify('null'));
-        await this.#redisClient.expire(this.getRedisKey(sessionKey), this.#ttl.toSecond());
+        await this.checkConnectivity();
+        await this.#redisClient.set(this.getRedisKey(sessionKey), JSON.stringify('null'), {
+            EX: this.#ttl.toSecond()
+        });
     }
 
     async loadValue(sessionKey: SessionKey): Promise<Session | null> {
+        await this.checkConnectivity();
         const value = await this.#redisClient.get(this.getRedisKey(sessionKey));
         if (!value) {
             return null;
@@ -43,11 +53,14 @@ export class RedisSessionRepository<Session> implements SessionRepository<Sessio
     }
 
     async storeValue(sessionKey: SessionKey, value: Session): Promise<void> {
-        await this.#redisClient.set(this.getRedisKey(sessionKey), JSON.stringify(value));
-        await this.#redisClient.expire(this.getRedisKey(sessionKey), this.#ttl.toSecond());
+        await this.checkConnectivity();
+        await this.#redisClient.set(this.getRedisKey(sessionKey), JSON.stringify(value), {
+            EX: this.#ttl.toSecond()
+        });
     }
 
     async destroySession(sessionKey: SessionKey): Promise<void> {
+        await this.checkConnectivity();
         await this.#redisClient.del(this.getRedisKey(sessionKey));
     }
 
