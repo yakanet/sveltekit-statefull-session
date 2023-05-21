@@ -1,5 +1,11 @@
 # @sveltekit-statefull-session/core
 
+## 1.0.4
+
+### Patch Changes
+
+- remove exports from package.json for redis
+
 ## 1.0.3
 
 ### Patch Changes
