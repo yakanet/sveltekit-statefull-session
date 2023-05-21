@@ -1,5 +1,11 @@
 # @sveltekit-statefull-session/core
 
+## 1.0.3
+
+### Patch Changes
+
+- align version number
+
 ## 1.0.2
 
 ### Patch Changes

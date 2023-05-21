@@ -1,5 +1,12 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @sveltekit-statefull-session/core@1.0.3
+
 ## 1.0.3
 
 ### Patch Changes
@@ -32,5 +39,3 @@
 
 - Updated dependencies [1100396]
   - @sveltekit-statefull-session/core@1.0.0
-
-
