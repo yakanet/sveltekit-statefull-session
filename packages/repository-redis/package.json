@@ -1,6 +1,6 @@
 {
   "name": "@sveltekit-statefull-session/repository-redis",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "type": "module",
   "scripts": {
@@ -15,11 +15,8 @@
     "!dist/**/*.test.*",
     "!dist/**/*.spec.*"
   ],
-  "peerDependencies": {
-    "@sveltekit-statefull-session/core": "workspace:*",
-    "@redis/client": "^1.5.7"
-  },
-  "devDependencies": {
+  "dependencies": {
+    "@redis/client": "^1.5.7",
     "@sveltekit-statefull-session/core": "workspace:*"
   },
   "keywords": [],

@@ -1,5 +1,11 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.0.3
+
+### Patch Changes
+
+- move peerDependencies to dependencies
+
 ## 1.0.2
 
 ### Patch Changes
@@ -27,13 +33,4 @@
 - Updated dependencies [1100396]
   - @sveltekit-statefull-session/core@1.0.0
 
-## 2.0.0
 
-### Minor Changes
-
-- experiments with changeset
-
-### Patch Changes
-
-- Updated dependencies
-  - @sveltekit-statefull-session/core@0.1.0
