@@ -54,9 +54,6 @@ importers:
 
   packages/core:
     devDependencies:
-      '@sveltejs/adapter-auto':
-        specifier: ^2.0.0
-        version: 2.1.0(@sveltejs/kit@1.18.0)
       '@sveltejs/kit':
         specifier: ^1.5.0
         version: 1.18.0(svelte@3.59.1)(vite@4.3.8)
@@ -602,15 +599,6 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
-    dev: true
-
-  /@sveltejs/adapter-auto@2.1.0(@sveltejs/kit@1.18.0):
-    resolution: {integrity: sha512-o2pZCfATFtA/Gw/BB0Xm7k4EYaekXxaPGER3xGSY3FvzFJGTlJlZjBseaXwYSM94lZ0HniOjTokN3cWaLX6fow==}
-    peerDependencies:
-      '@sveltejs/kit': ^1.0.0
-    dependencies:
-      '@sveltejs/kit': 1.18.0(svelte@3.59.1)(vite@4.3.8)
-      import-meta-resolve: 3.0.0
     dev: true
 
   /@sveltejs/adapter-vercel@2.4.3(@sveltejs/kit@1.18.0):
@@ -1668,10 +1656,6 @@ packages:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
-    dev: true
-
-  /import-meta-resolve@3.0.0:
-    resolution: {integrity: sha512-4IwhLhNNA8yy445rPjD/lWh++7hMDOml2eHtd58eG7h+qK3EryMuuRbsHGPikCoAgIkkDnckKfWSk2iDla/ejg==}
     dev: true
 
   /indent-string@4.0.0:
