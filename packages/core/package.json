@@ -1,6 +1,6 @@
 {
 	"name": "@sveltekit-statefull-session/core",
-	"version": "1.2.3",
+	"version": "1.2.4",
 	"description": "Statefull session for Sveltekit",
 	"scripts": {
 		"package": "pnpm run build",
@@ -20,7 +20,10 @@
 		"!dist/**/*.spec.*"
 	],
 	"exports": {
-		".": "./dist/index.js"
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
 	},
 	"peerDependencies": {
 		"svelte": "^3.54.0"

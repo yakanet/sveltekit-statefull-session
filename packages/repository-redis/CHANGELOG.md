@@ -1,5 +1,13 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.2.4
+
+### Patch Changes
+
+- fixing warning on publishing
+- Updated dependencies
+  - @sveltekit-statefull-session/core@1.2.4
+
 ## 1.2.3
 
 ### Patch Changes

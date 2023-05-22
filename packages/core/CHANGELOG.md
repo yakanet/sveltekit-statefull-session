@@ -1,5 +1,11 @@
 # @sveltekit-statefull-session/core
 
+## 1.2.4
+
+### Patch Changes
+
+- fixing warning on publishing
+
 ## 1.2.3
 
 ### Patch Changes
