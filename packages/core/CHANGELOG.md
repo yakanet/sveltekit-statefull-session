@@ -1,5 +1,11 @@
 # @sveltekit-statefull-session/core
 
+## 1.2.0
+
+### Minor Changes
+
+- publish to npm failed
+
 ## 1.1.1
 
 ### Patch Changes
