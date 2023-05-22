@@ -1,5 +1,11 @@
 # @sveltekit-statefull-session/core
 
+## 1.1.1
+
+### Patch Changes
+
+- wrong include in tsconfig.json
+
 ## 1.1.0
 
 ### Minor Changes

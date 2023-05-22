@@ -1,5 +1,13 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.1.1
+
+### Patch Changes
+
+- wrong include in tsconfig.json
+- Updated dependencies
+  - @sveltekit-statefull-session/core@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes
