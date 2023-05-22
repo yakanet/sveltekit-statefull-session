@@ -1,5 +1,13 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.2.3
+
+### Patch Changes
+
+- wrong exports for packages
+- Updated dependencies
+  - @sveltekit-statefull-session/core@1.2.3
+
 ## 1.2.2
 
 ### Patch Changes
