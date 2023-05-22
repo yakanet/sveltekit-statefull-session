@@ -9,10 +9,10 @@ export type SessionOption = {
 }
 
 /**
- * 
- * @param repository 
- * @param options 
- * @returns 
+ * Define in {locals.session} the session system
+ * @param repository Repository where session data will be stored
+ * @param options Session options
+ * @returns Sveltekit hook handling session management
  */
 export function handleSession<Session>(repository: SessionRepository<Session>, options: Partial<SessionOption> = {}): Handle {
     return async function ({ event, resolve }) {
@@ -32,7 +32,7 @@ export class SveltekitSession<Session> {
     constructor(private event: RequestEvent, private repository: SessionRepository<Session>, options: Partial<SessionOption> = {}) {
         this.options = {
             keyGenerator: options.keyGenerator ?? defaultSessionKey,
-            sessionCookieName: options.sessionCookieName ?? 'svelte-session-key',
+            sessionCookieName: options.sessionCookieName ?? 'sveltekit-session-key',
             debug: options.debug ?? false,
             secure: options.secure ?? true,
         }

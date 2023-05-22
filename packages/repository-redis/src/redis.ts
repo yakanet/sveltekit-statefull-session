@@ -4,10 +4,11 @@ import type { RepositoryOption, SessionRepository } from "@sveltekit-statefull-s
 
 interface RedisOption {
     client: RedisClientType<any, any, any>;
+    prefix?: string;
 }
 
 export class RedisSessionRepository<Session> implements SessionRepository<Session> {
-    private redisPrefix = 'session-key';
+    #redisPrefix: string;
 
     #redisClient: RedisClientType;
 
@@ -18,10 +19,11 @@ export class RedisSessionRepository<Session> implements SessionRepository<Sessio
     constructor(options: RepositoryOption & RedisOption) {
         this.#ttl = new TTLParser(options.ttl);
         this.#redisClient = options.client;
+        this.#redisPrefix = options.prefix ?? 'session';
     }
 
     private getRedisKey(sessionKey: SessionKey) {
-        return `${this.redisPrefix}:${sessionKey}`;
+        return `${this.#redisPrefix}:${sessionKey}`;
     }
 
     private async checkConnectivity() {
