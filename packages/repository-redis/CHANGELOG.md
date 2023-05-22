@@ -1,5 +1,13 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.2.1
+
+### Patch Changes
+
+- fix npmignore
+- Updated dependencies
+  - @sveltekit-statefull-session/core@1.2.1
+
 ## 1.2.0
 
 ### Minor Changes
