@@ -1,5 +1,13 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.2.2
+
+### Patch Changes
+
+- missing build script before publish
+- Updated dependencies
+  - @sveltekit-statefull-session/core@1.2.2
+
 ## 1.2.1
 
 ### Patch Changes
