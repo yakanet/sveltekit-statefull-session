@@ -1,5 +1,16 @@
 # @sveltekit-statefull-session/repository-redis
 
+## 1.1.0
+
+### Minor Changes
+
+- missing files in npmjs
+
+### Patch Changes
+
+- Updated dependencies
+  - @sveltekit-statefull-session/core@1.1.0
+
 ## 1.0.5
 
 ### Patch Changes

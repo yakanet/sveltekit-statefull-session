@@ -1,5 +1,11 @@
 # @sveltekit-statefull-session/core
 
+## 1.1.0
+
+### Minor Changes
+
+- missing files in npmjs
+
 ## 1.0.4
 
 ### Patch Changes

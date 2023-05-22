@@ -7,7 +7,7 @@
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "strict": true,
-        "moduleResolution": "NodeNext",
+        "moduleResolution": "node",
         "rootDir": "src",
         "outDir": "dist",
         "lib": [
@@ -16,8 +16,11 @@
         "target": "ESNext",
         "declaration": true
     },
+    "include": [
+        "../src/**/*.js",
+        "../src/**/*.ts"
+    ],
     "exclude": [
-        "tests",
-        "dist"
+        "./node_modules/**"
     ]
 }
